@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Button from "./components/Button";
+import Content from "./components/Content";
+import TodoList from "./components/TodoList/TodoList";
+import Country from "./components/Country";
 
 function App() {
+  const [isContentHidden, setIsContentHidden] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* FIRST EXAMPLE - Hiding and showing content */}
+      <Button setIsContentHidden={setIsContentHidden} />
+      {!isContentHidden && <Content />}
+
+      {/* SECOND EXAMPLE - Rendering a todo list component using inputs and controlled components */}
+      <TodoList />
+      <hr />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      {/* THIRD EXAMPLE - fetching data from API and using useEffect */}
+      <Country />
     </div>
   );
 }
